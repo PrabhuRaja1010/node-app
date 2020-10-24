@@ -11,7 +11,7 @@ pipeline {
         }
         stage ('Build Docker Image') {
             steps {
-                sh "sudo docker build -t . 10.128.0.35:8083/nodeapp:${DOCKER_TAG}"
+                sh "sudo docker build -t  10.128.0.35:8083/nodeapp:${DOCKER_TAG} . "
             }
         }
     }  
