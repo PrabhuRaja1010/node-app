@@ -16,7 +16,7 @@ pipeline {
         }
         stage ('push to nexus reistry') {
            steps{ 
-                sh "docker push 10.128.0.35:8083/nodeapp:${DOCKER_TAG}"
+                sh "sudo docker push 10.128.0.35:8083/nodeapp:${DOCKER_TAG}"
                      }  
                }
         }
