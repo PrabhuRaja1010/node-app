@@ -18,8 +18,25 @@ pipeline {
            steps{ 
                 sh "docker login -u admin -p admin 10.128.0.35:8083"
                 sh "docker push 10.128.0.35:8083/nodeapp:${DOCKER_TAG}"
-                     }  
-               }
+                     }
+                 }
+         stage ('changeing Tag') {
+           steps {
+              sh "chmod + changeTag.sh"
+              sh "./changeTag.sh ${DOCKER_TAG}"
+                }
+              } 
+          stage ('Deploy to K8s') {
+             steps {
+                scripts {
+                    KubernetesDeploy(
+                        configs: 'pods.yml',
+                        KubeconfigId: 'Kubernetes',
+                        enableConfigSubstitution: true
+                        }
+                     } 
+                 }
+                                 
         }
     
 }   
