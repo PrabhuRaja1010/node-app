@@ -32,7 +32,8 @@ pipeline {
                     KubernetesDeploy(
                         configs: 'pods.yml',
                         KubeconfigId: 'Kubernetes',
-                        enableConfigSubstitution: true
+                        enableConfigSubstitution: true 
+                        )
                         }
                      } 
                  }
