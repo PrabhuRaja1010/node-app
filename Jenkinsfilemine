@@ -28,7 +28,7 @@ pipeline {
               } 
           stage ('Deploy to K8s') {
              steps {
-                   sshagent(['K8s-machine']) {
+                   sshagent(['K8s-deploy']) {
                       sh  "scp -o StrictHostKeyChecking=no services.yml node-app-pod.yml prabhurikish@10.128.0.25:/home/prabhurikish/jenkins_deployments/"
                       script{
                           try{
