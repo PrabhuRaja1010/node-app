@@ -28,7 +28,8 @@ pipeline {
               } 
           stage ('Deploy to K8s') {
              steps {
-                   sh "kubectl apply -f services.yml node-app-pod.yml"                      
+                   sh "kubectl apply -f services.yml node-app-pod.yml" 
+                   }
           }
     }
 }   
