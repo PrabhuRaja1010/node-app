@@ -11,13 +11,13 @@ pipeline {
         }
         stage ('Build Docker Image') {
             steps {
-                sh "docker build . -t  10.128.0.35:8083/nodeapp:${DOCKER_TAG} "
+                sh "docker build . -t prabhuraja/nodeapp:${DOCKER_TAG} "
             }
         }
         stage ('push to nexus reistry') {
            steps{ 
-                sh "docker login -u admin -p admin 10.128.0.35:8083"
-                sh "docker push 10.128.0.35:8083/nodeapp:${DOCKER_TAG}"
+                sh "docker login -u prabhuraja -p prabhu359805"
+                sh "docker push prabhuraja/nodeapp:${DOCKER_TAG}"
                      }
                  }
          stage ('changeing Tag') {
